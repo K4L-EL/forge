@@ -1,62 +1,65 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import {
+  ShoppingBag,
+  ArrowLeft,
+  Lock,
+  CreditCard,
+  Loader2,
+} from "lucide-react";
 import { MarketingLayout } from "@/components/templates/marketing-layout";
 import { Section } from "@/components/atoms/section";
 import { ClayCard } from "@/components/atoms/clay-card";
 import { useCartStore } from "@/stores/cart-store";
-import { Input } from "@/components/ui/input";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { ArrowLeft, CreditCard, Lock, CheckCircle } from "lucide-react";
+
 export default function CheckoutPage() {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const { items, totalPrice, clearCart } = useCartStore();
+  const { items, totalPrice } = useCartStore();
+  const [loading, setLoading] = useState(false);
   const subtotal = totalPrice();
   const shipping = 0;
   const total = subtotal + shipping;
 
-  if (items.length === 0 && !formSubmitted) {
+  async function handlePayWithStripe() {
+    setLoading(true);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: items.map((item) => ({
+            name: item.product.name,
+            price: item.product.price,
+            quantity: item.quantity,
+          })),
+        }),
+      });
+      const data = (await res.json()) as { url?: string; error?: string };
+      if (!res.ok || !data.url) {
+        throw new Error(data.error ?? "Checkout failed");
+      }
+      window.location.href = data.url;
+    } catch {
+      setLoading(false);
+    }
+  }
+
+  if (items.length === 0) {
     return (
       <MarketingLayout>
         <Section>
           <ClayCard className="p-12 text-center">
+            <ShoppingBag className="mx-auto h-16 w-16 text-muted-foreground mb-4" />
             <p className="text-lg text-muted-foreground mb-6">
-              Your cart is empty.
+              Your cart is empty. Add some tests to continue to checkout.
             </p>
             <Link
               href="/products"
               className="clay-btn inline-flex items-center gap-2 px-6 py-3.5 text-base"
             >
               Browse Tests
-            </Link>
-          </ClayCard>
-        </Section>
-      </MarketingLayout>
-    );
-  }
-
-  if (formSubmitted) {
-    const orderNumber = `ORD-${Date.now().toString(36).toUpperCase()}`;
-    return (
-      <MarketingLayout>
-        <Section>
-          <ClayCard className="p-12 text-center max-w-lg mx-auto">
-            <CheckCircle className="mx-auto h-20 w-20 text-teal mb-6" />
-            <h2 className="text-2xl font-bold text-navy mb-2">
-              Order Confirmed!
-            </h2>
-            <p className="text-muted-foreground mb-2">
-              Thank you for your order. Your order number is:
-            </p>
-            <p className="font-mono font-bold text-teal text-lg mb-8">
-              {orderNumber}
-            </p>
-            <Link
-              href="/products"
-              className="clay-btn-teal inline-flex items-center gap-2 px-6 py-3.5 text-base"
-            >
-              Continue Shopping
             </Link>
           </ClayCard>
         </Section>
@@ -76,109 +79,39 @@ export default function CheckoutPage() {
         </Link>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="flex-1">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                clearCart();
-                setFormSubmitted(true);
-              }}
-              className="space-y-8"
+          <div className="flex-1 space-y-6">
+            <ClayCard className="p-6">
+              <h2 className="text-xl font-semibold text-navy mb-2 flex items-center gap-2">
+                <CreditCard className="h-5 w-5" />
+                Checkout
+              </h2>
+              <p className="text-sm text-muted-foreground mb-6">
+                You will be redirected to Stripe to complete payment securely.
+              </p>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Lock className="h-4 w-4 shrink-0" />
+                <span>Secure checkout powered by Stripe</span>
+              </div>
+            </ClayCard>
+
+            <button
+              type="button"
+              disabled={loading}
+              onClick={handlePayWithStripe}
+              className={cn(
+                "clay-btn w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base",
+                "rounded-xl font-semibold disabled:opacity-60 disabled:pointer-events-none"
+              )}
             >
-              <ClayCard className="p-6">
-                <h2 className="text-xl font-semibold text-navy mb-6">
-                  Contact Information
-                </h2>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    required
-                    className="clay-sm h-11 border-0 bg-white/80 rounded-xl"
-                  />
-                  <Input
-                    type="tel"
-                    placeholder="Phone"
-                    className="clay-sm h-11 border-0 bg-white/80 rounded-xl"
-                  />
-                </div>
-              </ClayCard>
-
-              <ClayCard className="p-6">
-                <h2 className="text-xl font-semibold text-navy mb-6">
-                  Shipping Address
-                </h2>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Input
-                    placeholder="First name"
-                    required
-                    className="clay-sm h-11 border-0 bg-white/80 rounded-xl"
-                  />
-                  <Input
-                    placeholder="Last name"
-                    required
-                    className="clay-sm h-11 border-0 bg-white/80 rounded-xl"
-                  />
-                  <Input
-                    placeholder="Address"
-                    required
-                    className="clay-sm h-11 border-0 bg-white/80 rounded-xl sm:col-span-2"
-                  />
-                  <Input
-                    placeholder="City"
-                    required
-                    className="clay-sm h-11 border-0 bg-white/80 rounded-xl"
-                  />
-                  <Input
-                    placeholder="Postcode"
-                    required
-                    className="clay-sm h-11 border-0 bg-white/80 rounded-xl"
-                  />
-                  <Input
-                    placeholder="Country"
-                    required
-                    className="clay-sm h-11 border-0 bg-white/80 rounded-xl sm:col-span-2"
-                  />
-                </div>
-              </ClayCard>
-
-              <ClayCard className="p-6">
-                <h2 className="text-xl font-semibold text-navy mb-6 flex items-center gap-2">
-                  <CreditCard className="h-5 w-5" />
-                  Payment
-                </h2>
-                <div className="space-y-4">
-                  <Input
-                    placeholder="Card number"
-                    className="clay-sm h-11 border-0 bg-white/80 rounded-xl"
-                  />
-                  <div className="grid grid-cols-2 gap-4">
-                    <Input
-                      placeholder="Expiry (MM/YY)"
-                      className="clay-sm h-11 border-0 bg-white/80 rounded-xl"
-                    />
-                    <Input
-                      placeholder="CVC"
-                      className="clay-sm h-11 border-0 bg-white/80 rounded-xl"
-                    />
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Lock className="h-4 w-4" />
-                    <span>Secure payment</span>
-                  </div>
-                </div>
-              </ClayCard>
-
-              <button
-                type="submit"
-                className={cn(
-                  "clay-btn-teal w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base",
-                  "rounded-xl font-semibold"
-                )}
-              >
-                Place Order
-              </button>
-            </form>
+              {loading ? (
+                <>
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                  Redirecting…
+                </>
+              ) : (
+                "Pay with Stripe"
+              )}
+            </button>
           </div>
 
           <aside className="lg:w-96 shrink-0">

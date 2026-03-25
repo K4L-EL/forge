@@ -71,8 +71,16 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Right: Cart + Mobile menu */}
+        {/* Right: Dashboard + Cart + Mobile menu */}
         <div className="flex items-center gap-4">
+          <Link
+            href="https://app.forgelabs.co.uk/sign-in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center justify-center clay-btn-teal px-4 py-2 text-sm rounded-xl font-semibold"
+          >
+            Dashboard
+          </Link>
           <Link
             href="/cart"
             className="relative flex items-center justify-center rounded-full p-2 text-navy transition-colors hover:bg-coral/10 hover:text-coral"

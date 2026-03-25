@@ -71,33 +71,30 @@ export function Hero() {
               "rounded-[42%_58%_62%_38%/45%_55%_45%_55%]"
             )}
           >
-            {/* Blob 1 - coral pastel */}
             <div
               className={cn(
                 "blob-shape float-animation absolute h-40 w-40 sm:h-48 sm:w-48",
-                "bg-[#FFB5B5] opacity-90",
+                "bg-[#F7949F] opacity-90",
                 "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
               )}
               style={{
                 borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
               }}
             />
-            {/* Blob 2 - teal pastel */}
             <div
               className={cn(
                 "blob-shape float-slow absolute h-32 w-32 sm:h-40 sm:w-40",
-                "bg-[#9EE5E1] opacity-[0.85]",
+                "bg-[#72DFD5] opacity-[0.85]",
                 "top-1/4 right-1/4 -translate-y-1/2"
               )}
               style={{
                 borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%",
               }}
             />
-            {/* Blob 3 - sunny pastel */}
             <div
               className={cn(
                 "blob-shape float-animation absolute h-28 w-28 sm:h-36 sm:w-36",
-                "bg-[#FFF4B3] opacity-90",
+                "bg-[#FFE080] opacity-90",
                 "bottom-1/4 left-1/4 -translate-x-1/2"
               )}
               style={{
@@ -105,11 +102,10 @@ export function Hero() {
                 animationDelay: "2s",
               }}
             />
-            {/* Blob 4 - purple pastel */}
             <div
               className={cn(
                 "blob-shape float-slow absolute h-24 w-24 sm:h-28 sm:w-28",
-                "bg-[#D4C5FC] opacity-80",
+                "bg-[#B8A5FD] opacity-80",
                 "top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2"
               )}
               style={{
@@ -117,11 +113,10 @@ export function Hero() {
                 animationDelay: "1s",
               }}
             />
-            {/* Blob 5 - navy tint */}
             <div
               className={cn(
                 "blob-shape absolute h-20 w-20 sm:h-24 sm:w-24",
-                "bg-[#E8E6F0] opacity-70",
+                "bg-[#D8D5E8] opacity-70",
                 "bottom-1/3 right-1/3"
               )}
               style={{

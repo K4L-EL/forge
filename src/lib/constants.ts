@@ -12,7 +12,7 @@ export const SITE_CONFIG = {
 export const NAV_LINKS: NavLink[] = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Tests", href: "/products" },
-  { label: "Results", href: "/#results" },
+  { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/#faq" },
 ];
 
@@ -51,8 +51,8 @@ export const FOOTER_LINKS = {
   product: [
     { label: "All Tests", href: "/products" },
     { label: "How It Works", href: "/#how-it-works" },
-    { label: "Pricing", href: "/products" },
-    { label: "For Teams", href: "#" },
+    { label: "Blog", href: "/blog" },
+    { label: "My Dashboard", href: "https://app.forgelabs.co.uk/sign-in" },
   ],
   company: [
     { label: "About Us", href: "#" },

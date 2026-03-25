@@ -17,11 +17,15 @@ export interface Product {
 }
 
 export type ProductCategory =
-  | "performance"
-  | "hormones"
   | "general"
+  | "hormones"
   | "heart"
+  | "nutrition"
   | "thyroid"
+  | "sports"
+  | "sexual-health"
+  | "cancer"
+  | "single-biomarker"
   | "comprehensive";
 
 export interface Testimonial {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 
 interface CheckoutItem {
   name: string;
@@ -36,6 +36,7 @@ export async function POST(request: Request) {
 
     const origin = getOrigin(request);
 
+    const stripe = getStripe();
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: items.map((item) => ({

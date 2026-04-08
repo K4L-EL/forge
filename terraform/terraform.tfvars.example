@@ -1,0 +1,34 @@
+# Copy to terraform.tfvars and fill in values
+# NEVER commit terraform.tfvars — it contains secrets
+
+subscription_id = "your-azure-subscription-id"
+
+project_name = "forgelabs"
+environment  = "production"
+location     = "uksouth"
+
+# Database
+db_admin_username = "forgelabsadmin"
+db_admin_password = "CHANGE_ME_strong_password_123!"
+
+# Blog Admin
+admin_password = "your-admin-password"
+
+# Stripe
+stripe_secret_key      = "sk_live_..."
+stripe_publishable_key = "pk_live_..."
+
+# Vercel Blob (for blog image uploads)
+blob_read_write_token = ""
+
+# Infrastructure sizing
+app_sku       = "B1"              # B1 = 1 vCPU, 1.75GB (cheapest always-on)
+db_sku        = "B_Standard_B1ms" # 1 vCPU, 2GB (cheapest PG)
+db_storage_mb = 32768             # 32GB
+
+# OpenAI
+openai_location      = "swedencentral"  # GPT-5.4-mini availability
+openai_tpm_capacity  = 80               # 80k tokens per minute
+
+# Custom domain (optional)
+custom_domain = ""  # e.g. "www.forgelabs.co.uk"

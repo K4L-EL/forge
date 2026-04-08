@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { Calendar, User, ArrowRight, Tag } from "lucide-react";
 import { MarketingLayout } from "@/components/templates/marketing-layout";

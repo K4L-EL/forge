@@ -44,7 +44,7 @@ export async function POST(request: Request) {
           { role: "system", content: SYSTEM_PROMPT },
           ...messages.map((m) => ({ role: m.role as "user" | "assistant", content: m.content })),
         ],
-        max_tokens: 800,
+        max_completion_tokens: 800,
         temperature: 0.7,
       });
 

@@ -9,16 +9,17 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "forgelabs-tfstate-rg"
-    storage_account_name = "forgelabstfstate"
-    container_name       = "tfstate"
+    subscription_id      = "ce9f377e-cfe1-4360-aae4-e40f72ce1280"
+    resource_group_name  = "taizo-tfstate-rg"
+    storage_account_name = "taizotfstate"
+    container_name       = "forgelabs-tfstate"
     key                  = "terraform.tfstate"
   }
 }
 
 provider "azurerm" {
   features {}
-  subscription_id = var.subscription_id
+  subscription_id = "ce9f377e-cfe1-4360-aae4-e40f72ce1280"
 }
 
 locals {
@@ -117,15 +118,11 @@ resource "azurerm_cognitive_deployment" "gpt54mini" {
 }
 
 # ─────────────────────────────────────────────
-# App Service Plan
+# App Service Plan (shared with taizo)
 # ─────────────────────────────────────────────
-resource "azurerm_service_plan" "main" {
-  name                = "${local.prefix}-plan"
-  resource_group_name = azurerm_resource_group.main.name
-  location            = azurerm_resource_group.main.location
-  os_type             = "Linux"
-  sku_name            = var.app_sku
-  tags                = local.tags
+data "azurerm_service_plan" "shared" {
+  name                = "taizo-production-plan"
+  resource_group_name = "taizo-production-rg"
 }
 
 # ─────────────────────────────────────────────
@@ -133,14 +130,14 @@ resource "azurerm_service_plan" "main" {
 # ─────────────────────────────────────────────
 resource "azurerm_linux_web_app" "app" {
   name                = "${local.prefix}-app"
-  resource_group_name = azurerm_resource_group.main.name
-  location            = azurerm_resource_group.main.location
-  service_plan_id     = azurerm_service_plan.main.id
+  resource_group_name = "taizo-production-rg"
+  location            = data.azurerm_service_plan.shared.location
+  service_plan_id     = data.azurerm_service_plan.shared.id
   https_only          = true
   tags                = local.tags
 
   site_config {
-    always_on                                = var.app_sku == "F1" ? false : true
+    always_on                                = true
     container_registry_use_managed_identity  = false
     health_check_path                        = "/api/health"
 

@@ -1,8 +1,3 @@
-variable "subscription_id" {
-  description = "Azure subscription ID"
-  type        = string
-}
-
 variable "project_name" {
   description = "Project name used for resource naming"
   type        = string

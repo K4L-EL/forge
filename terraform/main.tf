@@ -118,6 +118,35 @@ resource "azurerm_cognitive_deployment" "gpt54mini" {
 }
 
 # ─────────────────────────────────────────────
+# Azure Communication Services (Email)
+# ─────────────────────────────────────────────
+resource "azurerm_email_communication_service" "email" {
+  name                = "${local.prefix}-email"
+  resource_group_name = azurerm_resource_group.main.name
+  data_location       = "UK"
+  tags                = local.tags
+}
+
+resource "azurerm_email_communication_service_domain" "azure_managed" {
+  name              = "AzureManagedDomain"
+  email_service_id  = azurerm_email_communication_service.email.id
+  domain_management = "AzureManaged"
+  tags              = local.tags
+}
+
+resource "azurerm_communication_service" "comm" {
+  name                = "${local.prefix}-comm"
+  resource_group_name = azurerm_resource_group.main.name
+  data_location       = "UK"
+  tags                = local.tags
+}
+
+resource "azurerm_communication_service_email_domain_association" "assoc" {
+  communication_service_id = azurerm_communication_service.comm.id
+  email_service_domain_id  = azurerm_email_communication_service_domain.azure_managed.id
+}
+
+# ─────────────────────────────────────────────
 # App Service Plan (shared with taizo)
 # ─────────────────────────────────────────────
 data "azurerm_service_plan" "shared" {
@@ -163,6 +192,10 @@ resource "azurerm_linux_web_app" "app" {
 
     ADMIN_PASSWORD       = var.admin_password
     BLOB_READ_WRITE_TOKEN = var.blob_read_write_token
+
+    AZURE_COMMUNICATION_CONNECTION_STRING = azurerm_communication_service.comm.primary_connection_string
+    AZURE_COMMUNICATION_SENDER            = "DoNotReply@${azurerm_email_communication_service_domain.azure_managed.mail_from_sender_domain}"
+    CONTACT_FORM_TO_EMAIL                 = var.contact_form_to_email
 
     WEBSITES_PORT                      = "3000"
     WEBSITES_CONTAINER_START_TIME_LIMIT = "180"

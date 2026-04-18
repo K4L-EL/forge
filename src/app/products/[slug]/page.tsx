@@ -7,6 +7,7 @@ import { Section } from "@/components/atoms/section";
 import { ClayCard } from "@/components/atoms/clay-card";
 import { getProductBySlug, products, PRODUCT_CATEGORIES } from "@/data/products";
 import { ProductCard } from "@/components/molecules/product-card";
+import { ProductImage } from "@/components/molecules/product-image";
 import { useCartStore } from "@/stores/cart-store";
 import { cn } from "@/lib/utils";
 import {
@@ -68,6 +69,11 @@ export default function ProductDetailPage() {
 
         <div className="grid gap-10 lg:grid-cols-3 lg:gap-12">
           <div className="lg:col-span-2 space-y-6">
+            <ProductImage
+              product={product}
+              size="lg"
+              className="aspect-square w-full max-w-md rounded-3xl shadow-xl"
+            />
             <div>
               <span className="inline-block clay-sm px-4 py-1.5 text-sm font-semibold text-muted-foreground mb-3 rounded-full">
                 {categoryLabel}

@@ -30,3 +30,12 @@ output "openai_endpoint" {
 output "openai_deployment" {
   value = azurerm_cognitive_deployment.gpt54mini.name
 }
+
+output "acs_sender_domain" {
+  value = azurerm_email_communication_service_domain.azure_managed.mail_from_sender_domain
+}
+
+output "acs_connection_string" {
+  value     = azurerm_communication_service.comm.primary_connection_string
+  sensitive = true
+}

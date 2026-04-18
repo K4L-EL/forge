@@ -96,6 +96,14 @@ variable "openai_tpm_capacity" {
   default     = 80
 }
 
+# ── Email ──
+
+variable "contact_form_to_email" {
+  description = "Email address that receives contact form submissions"
+  type        = string
+  default     = "info@forgelabs.co.uk"
+}
+
 # ── Custom Domain ──
 
 variable "custom_domain" {

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ClayCard } from "@/components/atoms/clay-card";
+import { ProductImage } from "@/components/molecules/product-image";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, ArrowRight, Droplets, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -35,13 +36,15 @@ export function ProductCard({ product, className }: ProductCardProps) {
       {product.badge && (
         <Badge
           className={cn(
-            "absolute -top-3 right-6 border font-semibold text-xs px-3 py-1 rounded-full",
+            "absolute -top-3 right-6 z-10 border font-semibold text-xs px-3 py-1 rounded-full",
             accentMap[product.color]
           )}
         >
           {product.badge}
         </Badge>
       )}
+
+      <ProductImage product={product} size="md" className="mb-4 w-full" />
 
       <div className="flex items-center gap-3 mb-4">
         <div className={cn("w-3 h-3 rounded-full", dotMap[product.color])} />

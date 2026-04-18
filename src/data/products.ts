@@ -9,7 +9,7 @@ export const products: Product[] = [
     tagline: "Your health starting point",
     description:
       "A solid foundation covering 25 key biomarkers across bone health, heart, liver, energy, and nutrition. Ideal for anyone wanting a reliable snapshot of their overall wellbeing.",
-    price: 129,
+    price: 161,
     category: "general",
     biomarkers: [
       "Total Cholesterol",
@@ -52,7 +52,7 @@ export const products: Product[] = [
     tagline: "Go deeper, know more",
     description:
       "Our most popular comprehensive panel — 40 biomarkers spanning thyroid, immune function, hormones, heart, liver, and key nutrients. For those who want a thorough health overview in a single test.",
-    price: 156,
+    price: 195,
     category: "general",
     biomarkers: [
       "TSH",
@@ -110,7 +110,7 @@ export const products: Product[] = [
     tagline: "Leave nothing unchecked",
     description:
       "Our most comprehensive blood test with 47 biomarkers covering every major body system. The gold standard for anyone serious about proactive health monitoring and early detection.",
-    price: 399,
+    price: 499,
     category: "comprehensive",
     biomarkers: [
       "TSH",
@@ -175,7 +175,7 @@ export const products: Product[] = [
     tagline: "Find out what's draining you",
     description:
       "Feeling constantly tired? This 23-biomarker panel investigates the most common causes of low energy — from thyroid function and iron stores to vitamin deficiencies and blood sugar regulation.",
-    price: 137,
+    price: 171,
     category: "general",
     biomarkers: [
       "TSH",
@@ -215,7 +215,7 @@ export const products: Product[] = [
     tagline: "Strengthen your defences",
     description:
       "A focused 8-biomarker panel that checks the key pillars of your immune system. Ideal if you catch colds often or want to ensure your body is ready to fight back.",
-    price: 98,
+    price: 123,
     category: "general",
     biomarkers: [
       "IgA",
@@ -240,7 +240,7 @@ export const products: Product[] = [
     tagline: "Know your heart numbers",
     description:
       "Track the 10 biomarkers that matter most for cardiovascular health. Covers cholesterol, triglycerides, inflammation, and blood sugar — helping you stay ahead of heart disease risk.",
-    price: 76,
+    price: 95,
     category: "heart",
     biomarkers: [
       "Total Cholesterol",
@@ -267,7 +267,7 @@ export const products: Product[] = [
     tagline: "Check your filtration system",
     description:
       "A targeted 10-biomarker panel to assess how well your kidneys are filtering waste. Important for anyone on long-term medication, with high blood pressure, or a family history of kidney issues.",
-    price: 49,
+    price: 61,
     category: "general",
     biomarkers: [
       "Creatinine",
@@ -294,7 +294,7 @@ export const products: Product[] = [
     tagline: "Look after your liver",
     description:
       "A 10-biomarker panel that measures key enzymes and proteins to assess liver health. Recommended if you drink regularly, take medications, or simply want to check in on this vital organ.",
-    price: 49,
+    price: 61,
     category: "general",
     biomarkers: [
       "ALT",
@@ -321,7 +321,7 @@ export const products: Product[] = [
     tagline: "Uncover why you're exhausted",
     description:
       "A quick 6-biomarker check targeting the most common nutritional and hormonal causes of persistent tiredness. A fast, affordable first step to finding answers.",
-    price: 85,
+    price: 106,
     category: "general",
     biomarkers: [
       "Ferritin",
@@ -344,7 +344,7 @@ export const products: Product[] = [
     tagline: "Prostate health peace of mind",
     description:
       "A simple single-biomarker blood test measuring Prostate-Specific Antigen levels. Recommended for men aged 45 and over as part of routine prostate health screening.",
-    price: 49,
+    price: 61,
     category: "general",
     biomarkers: ["PSA (Prostate-Specific Antigen)"],
     biomarkerCount: 1,
@@ -362,7 +362,7 @@ export const products: Product[] = [
     tagline: "Decode your hormonal health",
     description:
       "An 11-biomarker panel designed to identify hormonal imbalances that can affect mood, energy, periods, and weight. A great starting point for women experiencing unexplained symptoms.",
-    price: 89,
+    price: 111,
     category: "hormones",
     biomarkers: [
       "Oestradiol",
@@ -390,7 +390,7 @@ export const products: Product[] = [
     tagline: "Optimise your male health",
     description:
       "A 12-biomarker panel covering the hormones that influence energy, muscle mass, mood, and libido in men. Ideal for those experiencing fatigue, low drive, or unexplained body composition changes.",
-    price: 89,
+    price: 111,
     category: "hormones",
     biomarkers: [
       "Testosterone",
@@ -419,7 +419,7 @@ export const products: Product[] = [
     tagline: "Breakthrough hormone mapping",
     description:
       "A revolutionary 2-day at-home test that maps your unique hormonal rhythm. Unlike single-point tests, MyFORM captures fluctuations to give a true picture of perimenopause progression.",
-    price: 129,
+    price: 161,
     category: "hormones",
     biomarkers: ["Oestradiol (mapped)", "Progesterone (mapped)"],
     biomarkerCount: 2,
@@ -436,7 +436,7 @@ export const products: Product[] = [
     tagline: "Your cycle, fully revealed",
     description:
       "A multi-day hormone mapping test that tracks oestradiol and progesterone across your cycle. Provides a detailed hormonal profile that single-point blood tests simply cannot match.",
-    price: 129,
+    price: 161,
     category: "hormones",
     biomarkers: ["Oestradiol (multi-day)", "Progesterone (multi-day)"],
     biomarkerCount: 2,
@@ -453,7 +453,7 @@ export const products: Product[] = [
     tagline: "Navigate the change with clarity",
     description:
       "A 20-biomarker panel covering hormones, thyroid, bone health, and cardiovascular markers relevant to menopause. Helps you and your GP make informed decisions about HRT and lifestyle changes.",
-    price: 119,
+    price: 149,
     category: "hormones",
     biomarkers: [
       "Oestradiol",
@@ -490,7 +490,7 @@ export const products: Product[] = [
     tagline: "Plan ahead with confidence",
     description:
       "A 9-biomarker panel including AMH (ovarian reserve) and key reproductive hormones. Essential for women thinking about future fertility or actively trying to conceive.",
-    price: 144,
+    price: 180,
     category: "hormones",
     biomarkers: [
       "AMH (Anti-Müllerian Hormone)",
@@ -516,7 +516,7 @@ export const products: Product[] = [
     tagline: "Get answers, take control",
     description:
       "A 17-biomarker panel designed to investigate polycystic ovary syndrome. Covers androgens, insulin resistance, thyroid function, and inflammation — the key factors driving PCOS symptoms.",
-    price: 165,
+    price: 206,
     category: "hormones",
     biomarkers: [
       "Testosterone",
@@ -552,7 +552,7 @@ export const products: Product[] = [
     tagline: "Beyond basic cholesterol",
     description:
       "An 8-biomarker panel including Lipoprotein(a) and ApoB — the advanced markers top cardiologists use to assess true cardiovascular risk, far beyond standard cholesterol ratios.",
-    price: 85,
+    price: 106,
     category: "heart",
     biomarkers: [
       "Total Cholesterol",
@@ -577,7 +577,7 @@ export const products: Product[] = [
     tagline: "Your diabetes risk, revealed",
     description:
       "A single-biomarker test measuring your average blood sugar over the past 2–3 months. The gold standard for detecting pre-diabetes and monitoring diabetes management.",
-    price: 46,
+    price: 58,
     category: "heart",
     biomarkers: ["HbA1c (Glycated Haemoglobin)"],
     biomarkerCount: 1,
@@ -595,7 +595,7 @@ export const products: Product[] = [
     tagline: "Fill the gaps in your diet",
     description:
       "A 14-biomarker panel that checks your levels of essential vitamins, minerals, and iron stores. Perfect for vegetarians, vegans, or anyone who suspects nutritional gaps in their diet.",
-    price: 109,
+    price: 136,
     category: "nutrition",
     biomarkers: [
       "Vitamin D",
@@ -626,7 +626,7 @@ export const products: Product[] = [
     tagline: "The sunshine vitamin check",
     description:
       "A quick single-biomarker test to check your vitamin D status. Essential in the UK where deficiency is incredibly common, especially during autumn and winter months.",
-    price: 50,
+    price: 63,
     category: "nutrition",
     biomarkers: ["Vitamin D (25-OH)"],
     biomarkerCount: 1,
@@ -642,7 +642,7 @@ export const products: Product[] = [
     tagline: "Essential for energy and nerves",
     description:
       "A single-biomarker test measuring active B12 levels. Particularly important for vegans, vegetarians, and older adults who are at higher risk of deficiency.",
-    price: 50,
+    price: 63,
     category: "nutrition",
     biomarkers: ["Active Vitamin B12"],
     biomarkerCount: 1,
@@ -658,7 +658,7 @@ export const products: Product[] = [
     tagline: "Check your iron stores",
     description:
       "A single-biomarker test that measures your body's iron reserves. Low ferritin is one of the most common causes of fatigue, hair loss, and breathlessness.",
-    price: 41,
+    price: 51,
     category: "nutrition",
     biomarkers: ["Ferritin"],
     biomarkerCount: 1,
@@ -674,7 +674,7 @@ export const products: Product[] = [
     tagline: "The overlooked mineral",
     description:
       "A single-biomarker test for magnesium — a mineral critical to muscle function, sleep quality, and energy production. Deficiency is surprisingly common and often missed.",
-    price: 45,
+    price: 56,
     category: "nutrition",
     biomarkers: ["Magnesium"],
     biomarkerCount: 1,
@@ -690,7 +690,7 @@ export const products: Product[] = [
     tagline: "Nourish your journey",
     description:
       "A 13-biomarker panel tailored to pregnancy, covering iron, folate, vitamin D, thyroid, and other nutrients critical for both mother and baby's health throughout pregnancy.",
-    price: 99,
+    price: 124,
     category: "nutrition",
     biomarkers: [
       "Iron",
@@ -722,7 +722,7 @@ export const products: Product[] = [
     tagline: "The complete thyroid picture",
     description:
       "A 5-biomarker panel that goes beyond basic TSH to include thyroid antibodies — essential for detecting autoimmune thyroid conditions like Hashimoto's that standard GP tests often miss.",
-    price: 69,
+    price: 86,
     category: "thyroid",
     biomarkers: [
       "TSH",
@@ -744,7 +744,7 @@ export const products: Product[] = [
     tagline: "Quick thyroid check-up",
     description:
       "A focused 3-biomarker panel covering the core thyroid markers. An affordable first step for anyone experiencing fatigue, weight changes, or mood shifts that could be thyroid-related.",
-    price: 50,
+    price: 63,
     category: "thyroid",
     biomarkers: ["TSH", "Free T4", "Free T3"],
     biomarkerCount: 3,
@@ -762,7 +762,7 @@ export const products: Product[] = [
     tagline: "Train smarter, recover better",
     description:
       "A 15-biomarker panel designed for active women. Covers iron, hormones, inflammation, and key nutrients that directly impact your training performance, recovery, and energy levels.",
-    price: 120,
+    price: 150,
     category: "sports",
     biomarkers: [
       "Iron",
@@ -794,7 +794,7 @@ export const products: Product[] = [
     tagline: "Fuel your performance",
     description:
       "A 15-biomarker panel built for men who train. Tracks testosterone, cortisol, iron, inflammation, and the nutrients that determine whether you're building or breaking down.",
-    price: 120,
+    price: 150,
     category: "sports",
     biomarkers: [
       "Testosterone",
@@ -828,7 +828,7 @@ export const products: Product[] = [
     tagline: "Quick, discreet, and essential",
     description:
       "A discreet at-home test covering the two most common STIs — chlamydia and gonorrhoea. Results in days, with full clinical support if anything comes back positive.",
-    price: 42,
+    price: 53,
     category: "sexual-health",
     biomarkers: ["Chlamydia", "Gonorrhoea"],
     biomarkerCount: 2,
@@ -844,7 +844,7 @@ export const products: Product[] = [
     tagline: "Cover the key four",
     description:
       "A comprehensive at-home test covering 4 of the most common STIs. Discreet packaging, simple collection, and fast results with full clinical support included.",
-    price: 79,
+    price: 99,
     category: "sexual-health",
     biomarkers: ["Chlamydia", "Gonorrhoea", "Syphilis", "HIV"],
     biomarkerCount: 4,
@@ -860,7 +860,7 @@ export const products: Product[] = [
     tagline: "Complete sexual health screen",
     description:
       "Our most comprehensive sexual health screen covering 6 STIs from the comfort of home. For complete peace of mind with new partners or as part of a regular health routine.",
-    price: 129,
+    price: 161,
     category: "sexual-health",
     biomarkers: [
       "Chlamydia",
@@ -885,7 +885,7 @@ export const products: Product[] = [
     tagline: "Early detection, better outcomes",
     description:
       "A groundbreaking multi-cancer early detection test that screens for signals across 70 different cancer types from a single blood draw. The most advanced cancer screening available outside of a hospital.",
-    price: 1169,
+    price: 1461,
     category: "cancer",
     biomarkers: ["Circulating Tumour Cells (70 cancer types)"],
     biomarkerCount: 70,
@@ -904,7 +904,7 @@ export const products: Product[] = [
     tagline: "Know your T levels",
     description:
       "A single-biomarker test measuring total testosterone. Useful for investigating low energy, reduced libido, mood changes, or monitoring testosterone levels over time.",
-    price: 41,
+    price: 51,
     category: "single-biomarker",
     biomarkers: ["Testosterone"],
     biomarkerCount: 1,
@@ -920,7 +920,7 @@ export const products: Product[] = [
     tagline: "Measure your stress hormone",
     description:
       "A single-biomarker test for cortisol — your body's primary stress hormone. Helps investigate symptoms like fatigue, weight gain, sleep disruption, and anxiety.",
-    price: 41,
+    price: 51,
     category: "single-biomarker",
     biomarkers: ["Cortisol"],
     biomarkerCount: 1,
@@ -936,7 +936,7 @@ export const products: Product[] = [
     tagline: "Track your oestrogen levels",
     description:
       "A single-biomarker test measuring oestradiol, the primary form of oestrogen. Useful for investigating menstrual irregularities, fertility concerns, or monitoring HRT.",
-    price: 40,
+    price: 50,
     category: "single-biomarker",
     biomarkers: ["Oestradiol (E2)"],
     biomarkerCount: 1,
@@ -952,7 +952,7 @@ export const products: Product[] = [
     tagline: "Confirm ovulation on day 21",
     description:
       "A single-biomarker test best taken on day 21 of your cycle to confirm whether ovulation has occurred. A key test for women trying to conceive or investigating cycle irregularities.",
-    price: 44,
+    price: 55,
     category: "single-biomarker",
     biomarkers: ["Progesterone"],
     biomarkerCount: 1,
@@ -968,7 +968,7 @@ export const products: Product[] = [
     tagline: "Understand your ovarian reserve",
     description:
       "A single-biomarker test measuring Anti-Müllerian Hormone — the best available indicator of ovarian reserve. Valuable for women considering egg freezing, IVF, or future family planning.",
-    price: 99,
+    price: 124,
     category: "single-biomarker",
     biomarkers: ["AMH (Anti-Müllerian Hormone)"],
     biomarkerCount: 1,
@@ -984,7 +984,7 @@ export const products: Product[] = [
     tagline: "Detect hidden inflammation",
     description:
       "A single-biomarker high-sensitivity CRP test that detects low-grade chronic inflammation — a key driver of heart disease, autoimmune conditions, and metabolic dysfunction.",
-    price: 41,
+    price: 51,
     category: "single-biomarker",
     biomarkers: ["hs-CRP (High-Sensitivity C-Reactive Protein)"],
     biomarkerCount: 1,

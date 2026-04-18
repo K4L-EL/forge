@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FlaskConical, Mail, Lock } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { ClayCard } from "@/components/atoms/clay-card";
+import { ContactFormModal } from "@/components/molecules/contact-form-modal";
 import { cn } from "@/lib/utils";
 
 export default function LoginPage() {
@@ -49,12 +50,17 @@ export default function LoginPage() {
           Sign In
         </button>
 
-        <Link
-          href="#"
-          className="block text-sm text-muted-foreground hover:text-teal transition-colors text-center"
-        >
-          Forgot password?
-        </Link>
+        <ContactFormModal
+          defaultSubject="Password reset help"
+          trigger={
+            <button
+              type="button"
+              className="block w-full text-sm text-muted-foreground hover:text-teal transition-colors text-center"
+            >
+              Forgot password?
+            </button>
+          }
+        />
 
         <div className="border-t border-border my-6" />
 

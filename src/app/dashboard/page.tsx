@@ -12,36 +12,51 @@ import {
 import { MarketingLayout } from "@/components/templates/marketing-layout";
 import { Section } from "@/components/atoms/section";
 import { ClayCard } from "@/components/atoms/clay-card";
+import { ContactFormModal } from "@/components/molecules/contact-form-modal";
 import { cn } from "@/lib/utils";
 
-const QUICK_ACTIONS = [
+type QuickAction = {
+  title: string;
+  description: string;
+  icon: typeof Activity;
+  variant: "default" | "teal";
+} & (
+  | { kind: "link"; href: string }
+  | { kind: "modal"; subject: string }
+);
+
+const QUICK_ACTIONS: QuickAction[] = [
   {
+    kind: "link",
     title: "My Results",
     description: "View your latest blood test results",
     icon: Activity,
-    href: "#",
-    variant: "default" as const,
+    href: "#recent-results",
+    variant: "default",
   },
   {
+    kind: "link",
     title: "Orders",
     description: "Track your orders",
     icon: Package,
     href: "/dashboard/orders",
-    variant: "default" as const,
+    variant: "default",
   },
   {
+    kind: "modal",
     title: "Activate Kit",
     description: "Activate a new test kit",
     icon: FlaskConical,
-    href: "#",
-    variant: "teal" as const,
+    subject: "Activate test kit",
+    variant: "teal",
   },
   {
+    kind: "link",
     title: "AI Assistant",
     description: "Get health insights from our AI",
     icon: Bell,
     href: "/chat",
-    variant: "default" as const,
+    variant: "default",
   },
 ];
 
@@ -72,61 +87,79 @@ export default function DashboardPage() {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {QUICK_ACTIONS.map((action) => {
                 const Icon = action.icon;
-                return (
-                  <Link key={action.title} href={action.href}>
-                    <ClayCard
-                      variant={action.variant}
-                      hover
+                const card = (
+                  <ClayCard
+                    variant={action.variant}
+                    hover
+                    className={cn(
+                      "p-6 h-full flex flex-col text-left",
+                      action.variant === "teal" && "clay-teal"
+                    )}
+                  >
+                    <div
                       className={cn(
-                        "p-6 h-full flex flex-col",
-                        action.variant === "teal" && "clay-teal"
+                        "w-12 h-12 rounded-xl flex items-center justify-center mb-4",
+                        action.variant === "teal"
+                          ? "bg-white/20"
+                          : "clay-sm bg-cream/50"
                       )}
                     >
-                      <div
+                      <Icon
                         className={cn(
-                          "w-12 h-12 rounded-xl flex items-center justify-center mb-4",
-                          action.variant === "teal"
-                            ? "bg-white/20"
-                            : "clay-sm bg-cream/50"
+                          "h-6 w-6",
+                          action.variant === "teal" ? "text-white" : "text-teal"
                         )}
-                      >
-                        <Icon
-                          className={cn(
-                            "h-6 w-6",
-                            action.variant === "teal" ? "text-white" : "text-teal"
-                          )}
-                        />
-                      </div>
-                      <h3
-                        className={cn(
-                          "font-semibold mb-1",
-                          action.variant === "teal" ? "text-white" : "text-navy"
-                        )}
-                      >
-                        {action.title}
-                      </h3>
-                      <p
-                        className={cn(
-                          "text-sm flex-1",
-                          action.variant === "teal"
-                            ? "text-white/90"
-                            : "text-muted-foreground"
-                        )}
-                      >
-                        {action.description}
-                      </p>
-                      <span
-                        className={cn(
-                          "inline-flex items-center gap-1 text-sm font-medium mt-2",
-                          action.variant === "teal"
-                            ? "text-white"
-                            : "text-teal hover:text-teal-dark"
-                        )}
-                      >
-                        View
-                        <ArrowRight className="h-4 w-4" />
-                      </span>
-                    </ClayCard>
+                      />
+                    </div>
+                    <h3
+                      className={cn(
+                        "font-semibold mb-1",
+                        action.variant === "teal" ? "text-white" : "text-navy"
+                      )}
+                    >
+                      {action.title}
+                    </h3>
+                    <p
+                      className={cn(
+                        "text-sm flex-1",
+                        action.variant === "teal"
+                          ? "text-white/90"
+                          : "text-muted-foreground"
+                      )}
+                    >
+                      {action.description}
+                    </p>
+                    <span
+                      className={cn(
+                        "inline-flex items-center gap-1 text-sm font-medium mt-2",
+                        action.variant === "teal"
+                          ? "text-white"
+                          : "text-teal hover:text-teal-dark"
+                      )}
+                    >
+                      View
+                      <ArrowRight className="h-4 w-4" />
+                    </span>
+                  </ClayCard>
+                );
+
+                if (action.kind === "modal") {
+                  return (
+                    <ContactFormModal
+                      key={action.title}
+                      defaultSubject={action.subject}
+                      trigger={
+                        <button type="button" className="block w-full">
+                          {card}
+                        </button>
+                      }
+                    />
+                  );
+                }
+
+                return (
+                  <Link key={action.title} href={action.href} className="block">
+                    {card}
                   </Link>
                 );
               })}
@@ -134,7 +167,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Recent Results */}
-          <div>
+          <div id="recent-results" className="scroll-mt-24">
             <h2 className="text-xl font-bold text-navy font-display mb-6">
               Recent Results
             </h2>
@@ -161,7 +194,7 @@ export default function DashboardPage() {
                     </span>
                   </div>
                   <Link
-                    href="#"
+                    href="/dashboard/orders"
                     className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-teal hover:text-teal-dark transition-colors"
                   >
                     View Results

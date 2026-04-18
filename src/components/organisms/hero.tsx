@@ -15,7 +15,7 @@ export function Hero() {
       {/* Full-width blob background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div
-          className="blob-shape float-animation absolute h-[340px] w-[340px] sm:h-[420px] sm:w-[420px] lg:h-[520px] lg:w-[520px] bg-[#F7949F] opacity-[0.35]"
+          className="blob-shape float-animation absolute h-[340px] w-[340px] sm:h-[420px] sm:w-[420px] lg:h-[520px] lg:w-[520px] bg-[#FF3399] opacity-[0.35]"
           style={{
             borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
             top: "5%",
@@ -23,7 +23,7 @@ export function Hero() {
           }}
         />
         <div
-          className="blob-shape float-slow absolute h-[280px] w-[280px] sm:h-[360px] sm:w-[360px] lg:h-[440px] lg:w-[440px] bg-[#72DFD5] opacity-[0.30]"
+          className="blob-shape float-slow absolute h-[280px] w-[280px] sm:h-[360px] sm:w-[360px] lg:h-[440px] lg:w-[440px] bg-[#9B6DFF] opacity-[0.32]"
           style={{
             borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%",
             top: "15%",
@@ -31,7 +31,7 @@ export function Hero() {
           }}
         />
         <div
-          className="blob-shape float-animation absolute h-[240px] w-[240px] sm:h-[300px] sm:w-[300px] lg:h-[380px] lg:w-[380px] bg-[#FFE080] opacity-[0.35]"
+          className="blob-shape float-animation absolute h-[240px] w-[240px] sm:h-[300px] sm:w-[300px] lg:h-[380px] lg:w-[380px] bg-[#FFCB3D] opacity-[0.35]"
           style={{
             borderRadius: "70% 30% 50% 50% / 30% 70% 30% 70%",
             animationDelay: "2s",
@@ -40,7 +40,7 @@ export function Hero() {
           }}
         />
         <div
-          className="blob-shape float-slow absolute h-[200px] w-[200px] sm:h-[260px] sm:w-[260px] lg:h-[320px] lg:w-[320px] bg-[#B8A5FD] opacity-[0.25]"
+          className="blob-shape float-slow absolute h-[200px] w-[200px] sm:h-[260px] sm:w-[260px] lg:h-[320px] lg:w-[320px] bg-[#26D3EC] opacity-[0.28]"
           style={{
             borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
             animationDelay: "1s",
@@ -49,7 +49,7 @@ export function Hero() {
           }}
         />
         <div
-          className="blob-shape float-animation absolute h-[160px] w-[160px] sm:h-[200px] sm:w-[200px] lg:h-[240px] lg:w-[240px] bg-[#D8D5E8] opacity-[0.30]"
+          className="blob-shape float-animation absolute h-[160px] w-[160px] sm:h-[200px] sm:w-[200px] lg:h-[240px] lg:w-[240px] bg-[#E6007E] opacity-[0.22]"
           style={{
             borderRadius: "50% 50% 30% 70% / 60% 40% 60% 40%",
             animationDelay: "3s",
@@ -58,7 +58,7 @@ export function Hero() {
           }}
         />
         <div
-          className="blob-shape float-slow absolute h-[120px] w-[120px] sm:h-[160px] sm:w-[160px] lg:h-[200px] lg:w-[200px] bg-[#F7949F] opacity-[0.20]"
+          className="blob-shape float-slow absolute h-[120px] w-[120px] sm:h-[160px] sm:w-[160px] lg:h-[200px] lg:w-[200px] bg-[#7C3AED] opacity-[0.22]"
           style={{
             borderRadius: "45% 55% 60% 40% / 50% 40% 60% 50%",
             animationDelay: "4s",

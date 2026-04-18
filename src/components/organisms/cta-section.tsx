@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Section } from "@/components/atoms/section";
+import { ContactFormModal } from "@/components/molecules/contact-form-modal";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -82,16 +83,21 @@ export function CtaSection() {
               Get Started
               <ArrowRight className="h-5 w-5" aria-hidden />
             </Link>
-            <Link
-              href="/#faq"
-              className={cn(
-                "inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl",
-                "font-semibold text-base border-2 border-white text-white",
-                "bg-transparent transition-all hover:bg-white/20 active:bg-white/10"
-              )}
-            >
-              Talk to Us
-            </Link>
+            <ContactFormModal
+              defaultSubject="General enquiry"
+              trigger={
+                <button
+                  type="button"
+                  className={cn(
+                    "inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl",
+                    "font-semibold text-base border-2 border-white text-white",
+                    "bg-transparent transition-all hover:bg-white/20 active:bg-white/10"
+                  )}
+                >
+                  Talk to Us
+                </button>
+              }
+            />
           </div>
         </div>
       </div>

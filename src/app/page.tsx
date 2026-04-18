@@ -5,6 +5,7 @@ import { HowItWorks } from "@/components/organisms/how-it-works";
 import { ProductHighlights } from "@/components/organisms/product-highlights";
 import { StatsSection } from "@/components/organisms/stats-section";
 import { TestimonialsSection } from "@/components/organisms/testimonials-section";
+import { TeamSection } from "@/components/organisms/team-section";
 import { FaqSection } from "@/components/organisms/faq-section";
 import { CtaSection } from "@/components/organisms/cta-section";
 
@@ -17,6 +18,7 @@ export default function HomePage() {
       <ProductHighlights />
       <StatsSection />
       <TestimonialsSection />
+      <TeamSection />
       <FaqSection />
       <CtaSection />
     </MarketingLayout>
